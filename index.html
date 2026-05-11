@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NiceFix - Servicio Técnico</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- PANEL IZQUIERDO -->
+  <div class="panel">
+
+    <div class="logo-box">
+      <img src="logo.png" class="logo">
+      <h1 id="tituloEmpresa">NiceFix</h1>
+      <p>Servicio Técnico</p>
+    </div>
+
+    <div class="formulario">
+
+      <input type="text" id="empresaInput" placeholder="Nombre del negocio">
+      <input type="file" id="logoInput" accept="image/*">
+
+      <input type="text" id="cliente" placeholder="Cliente">
+      <input type="text" id="telefono" placeholder="Teléfono">
+      <input type="text" id="marca" placeholder="Marca">
+      <input type="text" id="modelo" placeholder="Modelo">
+      <input type="text" id="imei" placeholder="IMEI">
+
+      <textarea id="problema" placeholder="Problema del equipo"></textarea>
+      <textarea id="estado" placeholder="Estado en el que ingresa"></textarea>
+
+      <input type="number" id="total" placeholder="Total">
+      <input type="number" id="sena" placeholder="Seña">
+
+      <button onclick="generarComprobante()">Generar Comprobante</button>
+
+      <button class="pdf" onclick="descargarPDF()">
+        Descargar PDF
+      </button>
+
+      <button class="whatsapp" onclick="enviarWhatsapp()">
+        Enviar comprobante al cliente
+      </button>
+
+    </div>
+  </div>
+
+  <!-- COMPROBANTE -->
+  <div class="comprobante-box">
+
+    <div class="comprobante" id="comprobante">
+
+      <!-- HEADER -->
+      <div class="top">
+
+        <div class="empresa">
+          <img src="logo.png" id="logoPreview" class="logo-comprobante">
+
+          <div>
+            <h2 id="nombreEmpresa">NiceFix</h2>
+            <p>Servicio Técnico</p>
+          </div>
+        </div>
+
+        <div class="info-comprobante">
+          <h3>COMPROBANTE</h3>
+          <p>N° <span id="numeroComprobante">1</span></p>
+          <p id="fecha"></p>
+        </div>
+
+      </div>
+
+      <hr>
+
+      <!-- DATOS -->
+      <div class="datos">
+
+        <p><strong>Cliente:</strong> <span id="c_cliente"></span></p>
+        <p><strong>Teléfono:</strong> <span id="c_telefono"></span></p>
+        <p><strong>Marca:</strong> <span id="c_marca"></span></p>
+        <p><strong>Modelo:</strong> <span id="c_modelo"></span></p>
+        <p><strong>IMEI:</strong> <span id="c_imei"></span></p>
+
+        <p><strong>Problema:</strong></p>
+        <div class="box" id="c_problema"></div>
+
+        <p><strong>Estado:</strong></p>
+        <div class="box" id="c_estado"></div>
+
+      </div>
+
+      <!-- PRECIOS -->
+      <div class="precios">
+
+        <div>
+          <h4>Total</h4>
+          <p>$ <span id="c_total"></span></p>
+        </div>
+
+        <div>
+          <h4>Seña</h4>
+          <p>$ <span id="c_sena"></span></p>
+        </div>
+
+        <div>
+          <h4>A pagar</h4>
+          <p>$ <span id="c_restante"></span></p>
+        </div>
+
+      </div>
+
+      <!-- GARANTIA -->
+      <div class="garantia">
+
+        <h3>Condiciones</h3>
+
+        <p>• Garantía válida únicamente con este comprobante.</p>
+        <p>• No nos responsabilizamos por pérdida de información.</p>
+        <p>• Equipos mojados pierden garantía.</p>
+        <p>• Después de 30 días se considera abandonado.</p>
+        <p>• Revisado por terceros pierde garantía.</p>
+
+      </div>
+
+      <!-- FIRMAS -->
+      <div class="firma">
+
+        <div>
+          ______________________
+          <p>Firma Cliente</p>
+        </div>
+
+        <div>
+          ______________________
+          <p>Técnico</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
